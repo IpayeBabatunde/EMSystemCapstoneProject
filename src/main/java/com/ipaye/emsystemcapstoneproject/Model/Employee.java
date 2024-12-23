@@ -14,29 +14,29 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
 
     @NotBlank(message="Name is required")
     @Column(nullable=false)
-    private String name;
+    public String name;
 
     @Email(message="Email should be valid")
     @NotBlank(message="Email is required")
     @Column(nullable=false, unique=true)
-    private String email;
+    public String email;
 
     @NotBlank(message="Department is required")
     @Column(nullable=false)
-    private String department;
+    public String department;
 
     @NotNull(message="Role Id is required")
     @Column(name="Role_id", nullable=false)
-    private Long roleId;
+    public Long roleId;
 
     @NotNull(message="Salary is required")
     @Min(value=0, message="Salary must be a positive number")
     @Column(nullable=false)
-    private Double salary;
+    public Double salary;
 
 
     public Employee(Long id, String name, String email, String department, Long roleId, Double salary) {
@@ -50,6 +50,16 @@ public class Employee {
 
     public Employee() {
 
+    }
+
+    public Employee(long id, String name, String email, long roleId, double salary) {
+
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.department=department;
+        this.roleId=roleId;
+        this.salary=salary;
     }
 
     public Long getId() {
